@@ -15,6 +15,7 @@ module Tax
       @state = state
       @city = city
       @package = []
+      @county = nil
       case state
       when :colorado
         uri = "https://www.taxview.state.co.us/QueryTaxrates.aspx?"
@@ -41,7 +42,7 @@ module Tax
           #city = place.first.strip
           #county = place.last.strip
           #TODO. some results belone to two states etc.
-          @package << [@state.to_s.upcase, city, county, @rate] if city && @rate
+          @package << [@state.to_s.upcase, @city, county, @rate] if @city && @rate
           rescue;puts 'woops';end
         end
       end
