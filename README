@@ -1,5 +1,5 @@
 
-
+require 'tax'
 
 result = Tax::State.new(:colorado, :all).package
 
