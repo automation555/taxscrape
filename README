@@ -1,0 +1,10 @@
+
+
+
+result = Tax::State.new(:colorado, :all).package
+
+csv = File.new("tax.csv","w+")
+
+result.each {|it|
+  csv.puts it.join('|')
+}
